@@ -11,11 +11,41 @@ package threads;
  */
 public class Threads {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+  
+        
+
+        String nome;
+        int delay;
+        int pecasProduzidas = 0;
+        static int TOTAL_PECAS = 10;
+
+        public Threads(String nome, int delay) {
+            this.nome = nome;
+            this.delay = delay;
+        }
+
+        public void trabalhar() {
+            System.out.println(nome + " - Comecei.");
+            while (pecasProduzidas < TOTAL_PECAS) {
+                try {
+                    Thread.sleep(delay);
+                    System.out.println(nome + ": " + ++pecasProduzidas);
+                } catch (InterruptedException ex) {
+                    System.out.println(ex);
+                }
+            }
+            System.out.println(nome + " - Terminei.");
+        }
+
+        /**
+         * main em que não existe concorrência.
+         */
+        public static void main(String[] args) {
+            Threads manuel = new Threads("Manuel", 300);
+            manuel.trabalhar();
+            Threads pedro = new Threads("\tPedro", 500);
+            pedro.trabalhar();
+            System.out.println("Main terminado.");
+        } 
+
     }
-    
-}

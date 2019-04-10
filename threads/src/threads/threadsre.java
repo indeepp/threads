@@ -9,6 +9,3 @@ package threads;
  *
  * @author ricardocosta
  */
-public class threadsre {
-    
-}
