@@ -41,6 +41,7 @@ public class Funcionario extends Thread{
         Funcionario manuel = new Funcionario("Manuel", 300);
         manuel.start();
         Funcionario pedro = new Funcionario("\tPedro", 300);
+        //pedro.run();
         pedro.start();
         System.out.println("Main terminado.");
     }
